@@ -1,0 +1,24 @@
+.menu {
+  height: 100vh;
+  width: 10vw;
+  position: fixed;
+  background: #333;
+}
+
+.menu-label {
+  color: #fff;
+  font-size: .8em;
+}
+
+.menu-list a {
+  color: #fff;
+  font-size: .8em;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.menu-header:hover {
+  border-radius: 0;
+}
