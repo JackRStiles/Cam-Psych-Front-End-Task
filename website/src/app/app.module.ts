@@ -4,10 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import { UsersComponent } from './users/users.component';
-import { GenderPipe } from './gender.pipe';
-import { PaginationComponent } from './pagination/pagination.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { UsersComponent } from './components/users/users.component';
+import { GenderPipe } from './pipes/gender.pipe';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { UserAddComponent } from './components/user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     UsersComponent,
     GenderPipe,
     PaginationComponent,
+    UserAddComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../users.service';
-import { Items, User } from '../users';
-import { GenderPipe } from '../gender.pipe';
+import { UsersService } from '../../services/users.service';
+import { Items, User } from '../../intefaces/users';
+import { GenderPipe } from '../../pipes/gender.pipe';
 import { PaginationComponent } from '../pagination/pagination.component';
 
 @Component({
