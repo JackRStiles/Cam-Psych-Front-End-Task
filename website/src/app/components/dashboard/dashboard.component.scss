@@ -1,0 +1,28 @@
+.dashboard-container {
+  display: flex;
+}
+
+.dashboard-button {
+  outline: solid 2px #333;
+  border-radius: 3px;
+  height: 150px;
+  width: 200px;
+  margin: 10px;
+
+  a {
+    color: #333;
+    font-size: 1.2em;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease;
+
+    &:hover {
+      color: #fff;
+      background: #333;
+    }
+  }
+}

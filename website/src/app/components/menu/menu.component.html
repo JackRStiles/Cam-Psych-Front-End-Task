@@ -4,10 +4,13 @@
   </p>
   <ul class="menu-list">
     <li>
-      <a class="menu-header" [routerLink]="['/users']">
+      <a class="menu-header" [routerLink]="['']">
         <i class="fa-solid fa-users mr-2"></i>Users
       </a>
       <ul>
+        <li>
+          <a [routerLink]="['/users']">Browse Users</a>
+        </li>
         <li>
           <a [routerLink]="['/users/add']">Add User</a>
         </li>

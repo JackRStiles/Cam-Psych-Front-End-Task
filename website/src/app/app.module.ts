@@ -9,6 +9,7 @@ import { UsersComponent } from './components/users/users.component';
 import { GenderPipe } from './pipes/gender.pipe';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { UserAddComponent } from './components/user-add/user-add.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { UserAddComponent } from './components/user-add/user-add.component';
     GenderPipe,
     PaginationComponent,
     UserAddComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
