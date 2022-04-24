@@ -10,6 +10,7 @@ import { GenderPipe } from './pipes/gender.pipe';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { UserAddComponent } from './components/user-add/user-add.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     BrowserModule,
     HttpClientModule,    
     AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

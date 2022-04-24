@@ -1,16 +1,20 @@
 <div class="columns">
   <h1 class="column title">Browse Users</h1>
-  <p class="column has-text-right">Page {{this.usersService.page + 1}} of {{this.usersService.pages}}</p>
 </div>
 <div *ngIf="userList">
   <div class="card my-4" *ngFor="let user of userList.items">
     <header class="card-header pl-3">
       <p class="card-header-title p-0">
-        {{ user.firstName }} {{ user.lastName }} 
+        {{ user.firstName }} {{ user.lastName }}
         <span class="subtitle is-6 pl-1">(#{{ user.id }})</span>
       </p>
-      <button class="card-header-icon" aria-label="delete user">
-        <i class="fa-solid fa-xmark"></i>
+      <button
+        id="{{ user.id }}"
+        (click)="onClick($event)"
+        class="button is-small m-2"
+        aria-label="delete user"
+      >
+        Delete
       </button>
     </header>
     <div class="card-content p-3">
@@ -24,8 +28,10 @@
           <div class="column is-1 p-0">{{ user.birthDate | date }}</div>
         </div>
         <div class="user-created columns m-0 p-0">
-            <div class="column is-1 p-0"><em>Created:</em></div>
-            <div class="column is-1 p-0"><em>{{ user.created | date }}</em></div>
+          <div class="column is-1 p-0"><em>Created:</em></div>
+          <div class="column is-1 p-0">
+            <em>{{ user.created | date }}</em>
+          </div>
         </div>
       </div>
     </div>
