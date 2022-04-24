@@ -1,3 +1,107 @@
 <div class="columns">
   <h1 class="column title">Add New User</h1>
 </div>
+<form #addUser="ngForm" (ngSubmit)="onSubmit(addUser.value)">
+  <div class="field">
+    <label class="label" for="firstName">First Name:</label>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        id="firstName"
+        name="firstName"
+        ngModel
+        required
+        maxlength="30"
+        minlength="3"
+        #firstName="ngModel"
+      />
+      <div
+        *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+        class="notification is-danger is-light p-1 px-2 my-2"
+      >
+        <div *ngIf="firstName.errors?.['required']">First Name is required.</div>
+        <div *ngIf="firstName.errors?.['maxlength']">
+          Name cannot be more than 30 characters long.
+        </div>
+        <div *ngIf="firstName.errors?.['minlength']">
+          Name must be at least 3 characters long.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label" for="lastName">Last Name:</label>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        name="lastName"
+        ngModel
+        required
+        maxlength="30"
+        minlength="3"
+        #lastName="ngModel"
+      />
+      <div
+        *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+        class="notification is-danger is-light p-1 px-2 my-2"
+      >
+        <div *ngIf="lastName.errors?.['required']">Last Name is required.</div>
+        <div *ngIf="lastName.errors?.['maxlength']">
+          Name cannot be more than 30 characters long.
+        </div>
+        <div *ngIf="lastName.errors?.['minlength']">
+          Name must be at least 3 characters long.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label" for="dateOfBirth">Date of Birth:</label>
+    <div class="control">
+      <input
+        class="input"
+        type="date"
+        name="dateOfBirth"
+        placeholder=""
+        ngModel
+        required
+        #dateOfBirth="ngModel"
+      />
+      <div
+        *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)"
+        class="notification is-danger is-light p-1 px-2 my-2"
+      >
+        <div *ngIf="dateOfBirth.errors?.['required']">Date of Birth is required.</div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label" for="gender">Gender</label>
+    <div class="control">
+      <div class="select">
+        <select name="gender" ngModel required #gender="ngModel">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+      <div
+          *ngIf="gender.invalid && (gender.dirty || gender.touched)"
+          class="notification is-danger is-light p-1 px-2 my-2"
+        >
+          <div *ngIf="gender.errors?.['required']">Gender is required.</div>
+        </div>
+    </div>
+    <div class="control mt-4">
+      <button
+        class="button is-link"  
+        type="submit"
+        value="Submit"
+        [disabled]="!addUser.form.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
