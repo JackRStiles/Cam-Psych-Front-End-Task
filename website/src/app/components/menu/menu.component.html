@@ -4,7 +4,10 @@
   </p>
   <ul class="menu-list">
     <li>
-      <a class="menu-header" [routerLink]="['']" >
+      <a class="menu-header" 
+      [routerLink]="['']" 
+      [routerLinkActive]="['active']" 
+      [routerLinkActiveOptions]="{exact: true}">
         <i class="fa-solid fa-users mr-2"></i>Users
       </a>
       <ul>

@@ -34,7 +34,7 @@ export class UsersComponent implements OnInit {
 
     if (confirm(`Are you sure you want to delete #${value}`)) {
       this.router.navigate(['users', 'delete', value]);
-      // this.usersService.deleteUser(value).subscribe();
+      //his.usersService.deleteUser(value).subscribe();
     }
   }
 
