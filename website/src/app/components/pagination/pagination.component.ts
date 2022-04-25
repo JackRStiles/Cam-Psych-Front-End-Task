@@ -48,3 +48,8 @@ export class PaginationComponent implements OnInit {
 
 // TODO 
 // Add active page tracking, could possibly do it with routing.
+// Attempted this by passing on object to the pages array with
+// that contains the number of the page and the created router
+// link but when it came to rendering the buttons using ngFor, 
+// it couldn't see the properties of the object and i'm not 
+// sure whay.

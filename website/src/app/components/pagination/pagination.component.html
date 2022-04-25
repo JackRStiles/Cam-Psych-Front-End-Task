@@ -2,7 +2,13 @@
   <nav class="pagination is-centered" role="navigation" aria-label="pagination">
     <ul class="pagination-list">
       <li *ngFor="let page of pages">
-        <a id="{{page}}" class="pagination-link" (click)="onClick($event)">{{ page + 1 }}</a>
+        <a 
+          id="{{page}}" 
+          class="pagination-link" 
+          (click)="onClick($event)"
+        >
+         {{ page + 1 }}
+        </a>
       </li>
     </ul>
   </nav>

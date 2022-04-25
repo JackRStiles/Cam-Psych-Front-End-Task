@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { UsersService } from '../../services/users.service';
 import { Items } from '../../intefaces/users';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
   constructor(
     public usersService: UsersService,
     public router: Router,
+    private route: ActivatedRoute,
     private titleService: Title
   ) {}
 
@@ -39,7 +40,9 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Users - The Pyschometrics Centre');
-    this.getUsers(0);
+    let id = this.route.snapshot.paramMap.get('number');
+    let idInt = parseInt(id!) - 1;
+    this.getUsers(idInt);
   }
 }
 
