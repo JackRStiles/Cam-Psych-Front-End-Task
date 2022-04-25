@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { UsersService } from '../../services/users.service';
 import { Items } from '../../intefaces/users';
 import { FormControl } from '@angular/forms';
@@ -13,7 +14,10 @@ export class UserAddComponent implements OnInit {
   errorMessage: any;
   lastID = 0;
 
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private titleService: Title
+    ) {}
 
   onSubmit(data: any) {
     let now = new Date().toISOString().slice(0, 10);
@@ -33,6 +37,7 @@ export class UserAddComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle('Add User - The Pyschometrics Centre');
     this.usersService.getAllUsers().subscribe((data: Items) => {
       let total = data.total;
 
@@ -43,3 +48,9 @@ export class UserAddComponent implements OnInit {
     });
   }
 }
+
+// TODO 
+// This still doesn't work, it doesn't seem to error but doesn't 
+// seem to work either
+//
+// Add better error handling

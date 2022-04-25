@@ -49,8 +49,8 @@ export class UsersService {
       );
   }
 
-  deleteUser(id: number): Observable<unknown>{
-    return this.http.delete(`${this.baseURL}users/${id}`, httpOptions)
+  deleteUser(id: number): Observable<void>{
+    return this.http.delete<void>(`${this.baseURL}users/${id}`, httpOptions)
       .pipe(
         catchError(this.handleError)
       );

@@ -45,3 +45,6 @@ export class PaginationComponent implements OnInit {
     this.calculatePageNumbers();
   }
 }
+
+// TODO 
+// Add active page tracking, could possibly do it with routing.

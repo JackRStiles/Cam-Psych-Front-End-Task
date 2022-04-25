@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { UsersService } from '../../services/users.service';
-import { Items, User } from '../../intefaces/users';
-import { GenderPipe } from '../../pipes/gender.pipe';
-import { PaginationComponent } from '../pagination/pagination.component';
-import { catchError, mergeMap, retry, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Items } from '../../intefaces/users';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +13,11 @@ export class UsersComponent implements OnInit {
   userList: Items | undefined;
   total = 0;
   
-  constructor(public usersService: UsersService) {}
+  constructor(
+    public usersService: UsersService,
+    public router: Router,
+    private titleService: Title
+  ) {}
 
   getUsers(pageNumber: Number) {
     this.usersService.getUsers(20, pageNumber).subscribe((data: Items) => {
@@ -30,18 +32,16 @@ export class UsersComponent implements OnInit {
     value = parseInt(value);
 
     if (confirm(`Are you sure you want to delete #${value}`)) {
-      console.log('Deleting User', value);
-      this.usersService.deleteUser(value).subscribe(
-        () => {
-          console.log('User Deleted Successfully!');
-        }
-      );
-      // TODO Reload the users list after deleting one
+      this.router.navigate(['users', 'delete', value]);
+      // this.usersService.deleteUser(value).subscribe();
     }
   }
 
   ngOnInit(): void {
-    console.log(`Initialising Users Component`);
+    this.titleService.setTitle('Users - The Pyschometrics Centre');
     this.getUsers(0);
   }
 }
+
+// TODO 
+// Add better error handling

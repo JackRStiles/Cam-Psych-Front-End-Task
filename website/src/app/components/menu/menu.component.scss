@@ -3,6 +3,10 @@
   width: 10vw;
   position: fixed;
   background: #333;
+
+  li {
+    padding: 2px 0;
+  }
 }
 
 .menu-label {
@@ -14,8 +18,9 @@
   color: #fff;
   font-size: .8em;
 
-  &:hover {
+  &:is(:hover, .active) {
     color: #333;
+    background: #fff;
   }
 }
 
