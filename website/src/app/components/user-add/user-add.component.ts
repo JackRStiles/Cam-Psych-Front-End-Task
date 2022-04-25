@@ -4,6 +4,7 @@ import { UsersService } from '../../services/users.service';
 import { Items } from '../../intefaces/users';
 import { FormControl } from '@angular/forms';
 import { catchError, last, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-add',
@@ -16,7 +17,8 @@ export class UserAddComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private titleService: Title
+    private titleService: Title,
+    public router: Router,
     ) {}
 
   onSubmit(data: any) {
@@ -33,7 +35,12 @@ export class UserAddComponent implements OnInit {
 
     console.log(user);
 
-    this.usersService.addUser(user).subscribe();
+    this.usersService.addUser(user).subscribe(
+      () => {
+        alert('User has been added.')
+        this.router.navigate(['users']);
+      }
+    );
   }
 
   ngOnInit() {
@@ -50,7 +57,4 @@ export class UserAddComponent implements OnInit {
 }
 
 // TODO 
-// This still doesn't work, it doesn't seem to error but doesn't 
-// seem to work either
-//
 // Add better error handling
