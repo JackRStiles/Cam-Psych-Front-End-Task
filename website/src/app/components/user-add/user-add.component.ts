@@ -33,7 +33,7 @@ export class UserAddComponent implements OnInit {
 
     console.log(user);
 
-    this.usersService.addUser(user);
+    this.usersService.addUser(user).subscribe();
   }
 
   ngOnInit() {
